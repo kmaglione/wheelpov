@@ -6,6 +6,7 @@ import sys
 sys.path.insert(0,
                 os.path.dirname(os.path.abspath(__file__)))
 
+from wheelpov.hex import Hex
 from wheelpov.image import RadialImage
 from wheelpov.svg import SVG
 
@@ -16,6 +17,10 @@ ri = RadialImage(filename=sys.argv[1],
                  npixels=48,
                  outer_pixels=256)
 
-SVG.save(ri, sys.argv[2], mosaic=False)
+if True:
+    SVG.save(ri, sys.argv[2], mosaic=False)
+
+if len(sys.argv) >= 4:
+    Hex.save(ri, sys.argv[3]);
 
 # vim:se sts=4 sw=4 et ft=python:
